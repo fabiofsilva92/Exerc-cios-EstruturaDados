@@ -10,6 +10,7 @@ public class Exercicios {
 	public Exercicios() {
 		super();
 	}
+	
 	//Exercício 1
 	public void Ex1(){
 		
@@ -25,21 +26,24 @@ public class Exercicios {
 		System.out.println("Números Gerados entre -100 e 1000: ");
 		for(int i = 0; i<100; i++) {
 			saldos[i] = (double)((Math.random()*1100)-100); //Gerando números entre -100 e 1000.
-			System.out.println(fmt.format(saldos[i]));
+			System.out.println(fmt.format(saldos[i])); //Printando os números para a conferencia.
+			//Preparando o calculo para média entre 100 a 1000;
 			if(saldos[i] >100 && saldos[i]<1000 ) {
 				contadorRange++;
 				mediaRange = mediaRange + saldos[i];
 			}
+			//Soma dos negativos
 			if(saldos[i]<0) {
 				somaNegativo = somaNegativo + saldos[i];
 			}
+			//Media geral dos saldos
 			mediaGeral = mediaGeral + saldos[i];
 		}
 		
-		//System.out.println("Soma dos saldos no range : " +fmt.format(mediaRange));
-		//System.out.println("Quantidade de numeros no range: " +fmt.format(contadorRange));
+		//System.out.println("Soma dos saldos no range : " +fmt.format(mediaRange)); //Debug
+		//System.out.println("Quantidade de numeros no range: " +fmt.format(contadorRange)); //Debug
 		System.out.println("A media dos saldos entre 100 à 1000 é: " +fmt.format(mediaRange/contadorRange));
-		//System.out.println("Soma de todos os saldos:" +fmt.format(mediaGeral));
+		//System.out.println("Soma de todos os saldos:" +fmt.format(mediaGeral)); //Debug
 		System.out.println("A média geral dos saldos é: " + fmt.format(mediaGeral/100));
 		System.out.println("A soma dos saldos negativos é: "+fmt.format(somaNegativo));
 	}
@@ -66,7 +70,6 @@ public class Exercicios {
 	public int calcFatorial(int num) {
 		for(int i = num-1; i>0; i--) {
 			num = num*i;
-			//System.out.println(num);
 		}
 		return num;
 	}
@@ -77,11 +80,9 @@ public class Exercicios {
 	public void Ex3() {
 		int[] vetorInteiro = new int[100];
 		int aux;
-		
-		
 		for(int i = 0; i<100; i++) {
 			double vetor;
-			vetor = (double)((Math.random()*200) -100);
+			vetor = (double)((Math.random()*200) -100); //Gerando valores entre -100 e 100
 			vetorInteiro[i] = (int)vetor;
 		}
 		//Bubble Sort
@@ -94,7 +95,7 @@ public class Exercicios {
 				}
 			}
 		}
-		
+		//Print do vetor organizado
 		for(int i : vetorInteiro) {
 			System.out.println(i);
 		}
@@ -103,11 +104,7 @@ public class Exercicios {
 	//Exercício 4
 	public void Ex4() {
 		Random gerar = new Random();
-		int contadorImpar = 0;
-		int contadorDiv3 = 0;
-		int contadorDiv8 = 0;
-		int soma1a100 = 0;
-		
+		int contadorImpar = 0, contadorDiv3 =0, contadorDiv8 = 0, soma1a100 = 0;
 		int[][] matriz = new int[4][4];
 		
 		for(int i = 0; i <4; i++) {
@@ -130,15 +127,16 @@ public class Exercicios {
 					//System.out.println("CONTADOR IMPAR " +contadorImpar);
 				}
 			}
-
 		}
 		System.out.println("A Soma dos valores de 1 a 100: " +soma1a100);
 		System.out.println("Quantidade de nº impares entre 30 a 50 : "+contadorImpar);
 		System.out.println("Quantidade de números divisíveis por 8: " +contadorDiv8);
 		System.out.println("Quantidade de números divisíveis por 3: " +contadorDiv3);
+		//Organizando o vetor para apresentação final, poderia deixar uma variavel auxiliar para pegar o maior valor, porém decidi seguir esse raciocinio para apresentar a matriz no final
 		int [] vetoraux = new int[16];
 		int aux;
 		int cont = 0;
+		
 		for(int i= 0; i<4; i++) {
 			for (int j=0; j<4; j++) {
 					vetoraux[cont] = matriz[i][j];
@@ -166,9 +164,7 @@ public class Exercicios {
 		}
 		
 		System.out.println("O maior número informado na matriz é: " +matriz[3][3]);
-			
 		System.out.println("O valor do fatorial do maior número é: " +calcFatorial(matriz[3][3])); //O valor fica muito alto e o programa zera.
-	
 		System.out.println("_______________ MATRIZ UTILIZADA _______________");
 		
 		for(int i= 0; i<4; i++) {
@@ -179,11 +175,8 @@ public class Exercicios {
 		}
 	}
 	
-	
 	//Exercício 5
-	
 	public void Ex5() {
-		
 		int [][] matriz = new int [4][4];
 		int predefinido = 1;
 		
